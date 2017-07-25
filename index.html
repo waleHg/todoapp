@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<title>Todo List </title>
+<link href="https://fonts.googleapis.com/css?family=Questrial" rel="stylesheet">
+<style type="text/css">
+body{
+	font-family: "Questrial Regular";
+}
+h1
+{
+	font-family: "Questrial Regular";
+	text-align: center;
+	padding-top: 40px;
+
+}
+h2{
+	color:black;
+	text-align: center;
+	letter-spacing: 3px;
+}
+input[type=text]{
+	font-family: "Questrial";
+	color: #333;
+	width: 600px;
+	padding: 10px;
+	margin-left: 40px;
+	
+}
+input[type=date]{
+	font-family: "Questrial";
+	color: #333;
+	width: 150px;
+	padding: 10px;
+	margin-top: 10px;
+	margin-left: 40px;
+	
+}
+input[type=button]{
+	font-family: "Questrial";
+	color: #fff;
+	float:right;
+	margin-right: 10px;
+	width: 220px;
+	padding: 12px;
+	background: #22A7F0;
+	border: 5px #22A7F0;
+
+}
+input[type=button]:hover{
+	color: #fff;
+	float:right;
+	width: 220px;
+	padding: 12x;
+	background: #4183D7;
+	border: 5px #4183D7;
+
+}
+ul {
+  margin: 0;
+  padding: 0;
+  color: #674172;
+}
+ul li{
+	color: #333;
+	font-weight: bold;
+	cursor: pointer;
+    position: relative;
+	background: #ddd;
+	padding: 13px 8px 20px 40px;
+	list-style: none;
+	background-color: #EEEEEE;
+	  /* make the list items unselectable */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+ul li:nth-child(odd) {
+  background: #D2D7D3;
+}
+ul li.checked {
+  background: #888;
+  color: #fff;
+  text-decoration: line-through;
+}
+
+ul li:hover {
+  background: #999;
+
+}
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 13px 16px 20px 16px;
+
+}
+.close:hover {
+  background-color: #CF000F;
+  color: white;
+}
+.container {
+  	width: 70%;
+    margin-left:auto;
+    margin-right: auto;
+    width: 903px;
+    height: auto;
+    background-color: white;
+    box-shadow: 2px 2px 2px #999;
+    padding-top: 80px;
+}
+
+#header
+{
+		font-family: "Raleway Regular";
+		color: #fff;
+	    background-color: #4183D7;
+		height: 200px;
+	
+
+}
+
+</style>
+
+
+</head>
+<body>
+	<script type="text/javascript">
+	function addTask(){
+	var li = document.createElement("li");
+	var taskDay=document.getElementById("taskDate").value;
+	var taskX=document.getElementById("newTask").value;
+	var data2=document.createTextNode(" ("+taskDay+") ");
+	var data = document.createTextNode(taskX);
+	li.appendChild(data);
+	li.appendChild(data2);
+	
+	if(taskX==""){
+		alert("Please enter a new task");
+	}
+	if(taskDay==""){
+		alert("Please select a valid date");
+	}
+	else{
+		document.getElementById("UL").appendChild(li);
+		
+	}
+	var span = document.createElement("SPAN");
+  var txt = document.createTextNode("x");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+
+	
+}
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+</script>
+
+
+<div id="header"><h1>Todo List</h1><div class="container">
+
+<input type="text" id="newTask" placeholder="...Add new task">
+<input type="button" value="ADD TASK" onclick="addTask()"></br>
+<input type="date" id="taskDate"  >
+</br></br>
+<ul id="UL">
+<ul>
+	<li>Your first task here...<span class="close">x</span></li>
+
+<li>List out planned activities with this to do list...<span class="close">x</span></li>
+<li>Click on "x" button to remove task...<span class="close">x</span></li>
+</ul>
+</ul></div>
+</body>
+
+
+</html>
